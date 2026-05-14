@@ -3,7 +3,7 @@ layout: category-hub
 title: CoreML
 description: Algorithms, mathematics, and intuition — built from the ground up.
 permalink: /coreml/
-nav: true
+nav: false
 nav_order: 1
 domain: coreml
 ---

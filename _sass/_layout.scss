@@ -1,3 +1,5 @@
+@use "variables" as v;
+
 /******************************************************************************
  * Content
  ******************************************************************************/
@@ -80,12 +82,15 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
 }
 
-@use "variables" as v;
-
 body {
   padding-bottom: 70px;
   color: var(--global-text-color);
+  background: linear-gradient(135deg, #05050a 0%, #0d0d1a 50%, #090912 100%) fixed;
   background-color: var(--global-bg-color);
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
 
   h1,
   h2,

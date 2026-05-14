@@ -3,7 +3,7 @@ layout: category-hub
 title: MLOps
 description: Taking models from notebooks to production, reliably and repeatably.
 permalink: /mlops/
-nav: true
+nav: false
 nav_order: 3
 domain: mlops
 ---

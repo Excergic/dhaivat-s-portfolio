@@ -4,13 +4,19 @@
 
 @use "variables" as v;
 
-p,
 h1,
 h2,
 h3,
 h4,
 h5,
-h6,
+h6 {
+  color: var(--global-text-color);
+  font-family: "Space Grotesk", "Inter", system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+p,
 em,
 div,
 li,

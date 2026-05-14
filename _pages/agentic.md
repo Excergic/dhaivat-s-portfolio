@@ -3,7 +3,7 @@ layout: category-hub
 title: Agentic
 description: Patterns, architectures, and systems for building AI agents that work.
 permalink: /agentic/
-nav: true
+nav: false
 nav_order: 2
 domain: agentic
 ---

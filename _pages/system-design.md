@@ -3,7 +3,7 @@ layout: category-hub
 title: System Design
 description: Designing ML infrastructure that scales — feature stores, serving layers, and distributed training.
 permalink: /system-design/
-nav: true
+nav: false
 nav_order: 4
 domain: system-design
 ---

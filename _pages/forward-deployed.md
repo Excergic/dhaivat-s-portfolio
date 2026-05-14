@@ -3,7 +3,7 @@ layout: category-hub
 title: Forward-Deployed
 description: AI in the field — working with customers to deploy and adapt ML systems.
 permalink: /forward-deployed/
-nav: true
+nav: false
 nav_order: 5
 domain: forward-deployed
 ---
