@@ -1,0 +1,127 @@
+---
+layout: default
+---
+{% if page._styles %}
+  <style type="text/css">
+    {{ page._styles }}
+  </style>
+{% endif %}
+
+<div class="post">
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    {% if page.description %}
+      <p class="post-description">{{ page.description }}</p>
+    {% endif %}
+  </header>
+
+  <article>
+    {{ content }}
+
+    {% assign domain = page.domain %}
+
+    <!-- ── Blog Posts ── -->
+    {% assign blog_posts = site.posts | where: "domain", domain | where: "content_type", "blog" | sort: "date" | reverse %}
+    {% if blog_posts.size > 0 %}
+    <section class="hub-section" id="blog-posts">
+      <h2 class="hub-section-title"><i class="fa-solid fa-pen-to-square fa-sm"></i> Blog Posts</h2>
+      <ul class="post-list hub-list">
+        {% for post in blog_posts %}
+        <li class="hub-item">
+          {% assign read_time = post.content | number_of_words | divided_by: 180 | plus: 1 %}
+          <h3><a class="post-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            {% if post.external_source %}<span class="badge badge-secondary ml-1">{{ post.external_source }}</span>{% endif %}
+          </h3>
+          {% if post.description %}<p class="post-description">{{ post.description }}</p>{% endif %}
+          <p class="post-meta">{{ post.date | date: '%B %d, %Y' }} &nbsp;&middot;&nbsp; {{ read_time }} min read</p>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+
+    <!-- ── Technical Content ── -->
+    {% assign tech_posts = site.posts | where: "domain", domain | where: "content_type", "technical" | sort: "date" | reverse %}
+    {% if tech_posts.size > 0 %}
+    <section class="hub-section" id="technical-content">
+      <h2 class="hub-section-title"><i class="fa-solid fa-code fa-sm"></i> Technical Content</h2>
+      <ul class="post-list hub-list">
+        {% for post in tech_posts %}
+        <li class="hub-item">
+          {% assign read_time = post.content | number_of_words | divided_by: 180 | plus: 1 %}
+          <h3><a class="post-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            {% if post.tags contains "supervised" %}<span class="badge badge-info ml-1">Supervised</span>{% endif %}
+            {% if post.tags contains "unsupervised" %}<span class="badge badge-warning ml-1">Unsupervised</span>{% endif %}
+          </h3>
+          {% if post.description %}<p class="post-description">{{ post.description }}</p>{% endif %}
+          <p class="post-meta">{{ post.date | date: '%B %d, %Y' }} &nbsp;&middot;&nbsp; {{ read_time }} min read</p>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+
+    <!-- ── Publications ── -->
+    {% assign pub_posts = site.posts | where: "domain", domain | where: "content_type", "publication" | sort: "date" | reverse %}
+    {% if pub_posts.size > 0 %}
+    <section class="hub-section" id="publications">
+      <h2 class="hub-section-title"><i class="fa-solid fa-book fa-sm"></i> Publications</h2>
+      <ul class="post-list hub-list">
+        {% for post in pub_posts %}
+        <li class="hub-item">
+          <h3><a class="post-title" href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+          {% if post.description %}<p class="post-description">{{ post.description }}</p>{% endif %}
+          <p class="post-meta">{{ post.date | date: '%B %d, %Y' }}{% if post.venue %} &nbsp;&middot;&nbsp; {{ post.venue }}{% endif %}</p>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+
+    <!-- ── Projects ── -->
+    {% assign domain_projects = site.projects | where: "category", domain | sort: "importance" %}
+    {% if domain_projects.size > 0 %}
+    <section class="hub-section" id="projects">
+      <h2 class="hub-section-title"><i class="fa-solid fa-diagram-project fa-sm"></i> Projects</h2>
+      <div class="row row-cols-1 row-cols-md-2 g-3">
+        {% for project in domain_projects %}
+        <div class="col">
+          <a href="{{ project.url | relative_url }}" class="text-decoration-none">
+            <div class="card hoverable h-100">
+              <div class="card-body">
+                <h3 class="card-title h5">{{ project.title }}</h3>
+                <p class="card-text text-muted">{{ project.description }}</p>
+              </div>
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    <!-- ── Design Documents ── -->
+    {% assign design_posts = site.posts | where: "domain", domain | where: "content_type", "design-doc" | sort: "date" | reverse %}
+    {% if design_posts.size > 0 %}
+    <section class="hub-section" id="design-docs">
+      <h2 class="hub-section-title"><i class="fa-solid fa-file-lines fa-sm"></i> Design Documents</h2>
+      <ul class="post-list hub-list">
+        {% for post in design_posts %}
+        <li class="hub-item">
+          {% assign read_time = post.content | number_of_words | divided_by: 180 | plus: 1 %}
+          <h3><a class="post-title" href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+          {% if post.description %}<p class="post-description">{{ post.description }}</p>{% endif %}
+          <p class="post-meta">{{ post.date | date: '%B %d, %Y' }} &nbsp;&middot;&nbsp; {{ read_time }} min read</p>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+
+    {% assign total = blog_posts.size | plus: tech_posts.size | plus: pub_posts.size | plus: domain_projects.size | plus: design_posts.size %}
+    {% if total == 0 %}
+    <p class="text-muted mt-4">Content coming soon.</p>
+    {% endif %}
+
+  </article>
+</div>

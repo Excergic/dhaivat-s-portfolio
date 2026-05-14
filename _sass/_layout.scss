@@ -1,0 +1,136 @@
+/******************************************************************************
+ * Content
+ ******************************************************************************/
+
+/******************************************************************************
+ * Category Hub
+ ******************************************************************************/
+
+.hub-section {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--global-divider-color);
+
+  &:first-of-type {
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0;
+  }
+}
+
+.hub-section-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--global-text-color);
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+
+  i {
+    opacity: 0.6;
+    margin-right: 0.4rem;
+  }
+}
+
+.hub-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hub-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--global-divider-color);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  h3 {
+    font-size: 1rem;
+    margin: 0 0 0.3rem;
+    font-weight: 500;
+
+    a {
+      color: var(--global-text-color);
+      text-decoration: none;
+
+      &:hover {
+        color: var(--global-theme-color);
+      }
+    }
+  }
+
+  .post-description {
+    font-size: 0.9rem;
+    color: var(--global-text-color-light);
+    margin: 0.25rem 0 0.3rem;
+  }
+
+  .post-meta {
+    font-size: 0.8rem;
+    color: var(--global-text-color-light);
+    margin: 0;
+  }
+}
+
+.loom-embed {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+@use "variables" as v;
+
+body {
+  padding-bottom: 70px;
+  color: var(--global-text-color);
+  background-color: var(--global-bg-color);
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    scroll-margin-top: 66px;
+  }
+}
+
+body.fixed-top-nav {
+  // Add some padding for the nav-bar.
+  padding-top: 57px;
+}
+
+body.sticky-bottom-footer {
+  // Remove padding below footer.
+  padding-bottom: 0;
+}
+
+.container {
+  max-width: v.$max-content-width;
+}
+
+// Profile
+.profile {
+  img {
+    width: 100%;
+  }
+}
+
+// Content layout uses Bootstrap's grid system with responsive columns
+// Main content flows naturally through container-mt-5 and Bootstrap grid classes
+// See _layouts/default.liquid and _includes/projects.liquid for examples
+
+/******************************************************************************
+ * Publications
+ ******************************************************************************/
+
+// Publications layout is defined in _includes/bib_search.liquid
+// Uses jekyll-scholar for BibTeX parsing and Bootstrap cards for display
+
+/*****************************************************************************
+* Projects
+*****************************************************************************/
+
+// TODO: redefine projects layout.
