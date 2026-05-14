@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://excergic.github.io/dhaivat-s-portfolio/sitemap.xml
