@@ -6,7 +6,7 @@ subtitle: AI/ML Engineer &nbsp;·&nbsp; Forward Deployed Engineer
 
 profile:
   align: right
-  image: prof_pic.png
+  image: new_pic.png
   image_circular: True
 
 selected_papers: false
